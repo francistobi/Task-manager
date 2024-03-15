@@ -3,6 +3,9 @@ const getAllTask = async (req, res) => {
   try {
     const task = await Task.find({});
     res.status(200).json({ task });
+    //other response format 
+    // res.status(200).json({ task, nbhits: task.length});
+    // res.status(200).json({status: "success", data : {task}, nbhits: task.length});
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -52,11 +55,11 @@ const updateTask = async (req, res) => {
     if (!task) {
       return res.status(404).json({ msg: `no task with id:${taskID}` });
     }
-    res.status(200).json({ task })
+    res.status(200).json({ task });
   } catch (error) {
-    res.status(500).json({ msg: error })
+    res.status(500).json({ msg: error });
   }
-  res.send("task updated successfully")
+  res.send("task updated successfully");
 };
 
 module.exports = {
