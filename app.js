@@ -8,12 +8,9 @@ const url = process.env.connection_string;
 const app = express()
 
 app.use(express.json());
-// app.use(express.static("public"))
+app.use(express.static("public"))
 
-app.get("/hello", (req, res) => {
-  res.send("welcome to the home page");
-});
-
+//routes
 app.use("/api/v1/tasks", tasks)
 
 //app.post("/api/v1/tasks") - create a new task
