@@ -4,6 +4,7 @@ const express = require("express");
 const tasks = require("./routes/tasks");
 const { connectToMongodb } = require("./db/connect");
 const notFound = require("./middleware/not-found");
+const errorMiddleware = require("./middleware/error-handler");
 const url = process.env.connection_string;
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(express.static("public"))
 app.use("/api/v1/tasks", tasks)
 
 app.use(notFound);
+app.use(errorMiddleware)
 
 const port = 7000;
 
