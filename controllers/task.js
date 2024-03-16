@@ -38,7 +38,7 @@ const updateTask =  asyncWrapper(async (req, res) => {
     if (!task) {
       return res.status(404).json({ msg: `no task with id:${taskID}` });
     }
-    res.status(200).json({ task });
+    res.status(200).json({ task })
 })
 
 module.exports = {

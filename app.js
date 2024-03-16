@@ -6,13 +6,13 @@ const { connectToMongodb } = require("./db/connect");
 const notFound = require("./middleware/not-found");
 const url = process.env.connection_string;
 
-const app = express();
+const app = express()
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("public"))
 
 //routes
-app.use("/api/v1/tasks", tasks);
+app.use("/api/v1/tasks", tasks)
 
 app.use(notFound);
 
