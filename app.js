@@ -16,9 +16,9 @@ app.use(express.static("public"));
 app.use("/api/v1/tasks", tasks);
 
 app.use(notFound);
-app.use(errorMiddleware)
+app.use(errorMiddleware);
 
-const port = 9000
+const port = process.env.PORT || 9000;
 
 const start = async () => {
   try {
@@ -27,7 +27,7 @@ const start = async () => {
       console.log(`Server started successfully at port ${port}...`);
     });
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 };
 start();
